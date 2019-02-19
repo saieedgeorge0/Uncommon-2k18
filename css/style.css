@@ -1,0 +1,1183 @@
+@font-face {
+    font-family: "Beef'd";
+    src: url("../fonts/Beef'd.ttf");
+}
+
+.register:link, .register:visited, .register:hover, .register:active {
+    color: black;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    background: black;
+    height: 100%;
+}
+
+.section {
+    position: relative;
+    min-height: 100vh;
+}
+
+.pong {
+    background: black;
+    position: relative;
+}
+
+/* Pong Animation */
+.ball{
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    -webkit-animation: play_ball 6s linear infinite;
+    animation: play_ball 6s linear infinite;
+}
+
+.left_paddle{
+    position: absolute;
+    width: 25px;
+    height: 120px;
+    top: 0px;
+    background: white;
+
+    -webkit-animation: left_pong 6s infinite;
+    animation: left_pong 6s infinite;
+}
+
+.right_paddle{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width:25px;
+    height:120px;
+    background:white;
+
+    -webkit-animation: right_pong 6s infinite;
+    animation: right_pong 6s infinite;
+}
+
+@-webkit-keyframes left_pong {
+    0% {top: 0px;}
+
+    25%{top: -webkit-calc(100% - 120px);}
+    25%{top: calc(100% - 120px);}
+
+    80%{top: -webkit-calc((100% - 120px) / 2);}
+    80%{top: calc((100% - 120px) / 2);}
+
+    100%{top: 0px;}
+}
+
+@-webkit-keyframes right_pong {
+    0% {top: -webkit-calc(100% - 120px);}
+    0% {top: calc(100% - 120px);}
+
+    50%{top: 0px;}
+
+    100%{top: -webkit-calc(100% - 120px);}
+    100%{top: calc(100% - 120px);}
+}
+
+@-webkit-keyframes play_ball{
+    0% {top: 60px; left: 25px;}
+
+    25%{left: -webkit-calc(100% - 55px); top: -webkit-calc(100% / 4);}
+    25%{left: calc(100% - 55px); top: calc(100% / 4);}
+
+    50%{left: -webkit-calc(100% / 2); top: -webkit-calc(100% - 30px);}
+    50%{left: calc(100% / 2); top: calc(100% - 30px);}
+
+    100%{left: 25px;}
+}
+
+.pong-game {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.pong-info-wrapper {
+    padding-bottom: 80px;
+}
+
+.pong-info {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-top: 180px;
+    position: relative;
+    z-index: 2;
+}
+
+.uncommon {
+    text-transform: uppercase;
+    font-size: 280%;
+    font-family: "Beef'd";
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: 700px;
+}
+
+.date, .location {
+    display: block;
+    font-family: 'Montserrat';
+    font-weight: 200;
+    font-size: 150%;
+}
+
+.date {
+    margin-top: 50px;
+}
+
+.location {
+    margin-top: 10px;
+}
+
+.logo {
+    margin-top: 70px;
+    height: 100px;
+}
+
+.register {
+    display: block;
+    text-transform: uppercase;
+    font-size: 130%;
+    color: black;
+    font-weight: 400;
+    background: white;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    margin: 50px auto 0;
+    width: 200px;
+    padding: 15px 0 17px;
+}
+
+
+.pacman {
+    background: #121949;
+    position: relative;
+}
+
+/* Pacman Animation */
+.pac-up {
+    background-color:yellow;
+    border-radius: 50px 50px 0 0;
+    height: 25px;
+    width: 50px;
+
+    -webkit-animation: eat-up 0.5s infinite;
+    animation: eat-up 0.5s infinite;
+  }
+
+  .pac-down {
+    background-color: yellow;
+    border-radius: 0 0 50px 50px;
+    height: 25px;
+    width: 50px;
+
+    -webkit-animation: eat-down 0.5s infinite;
+    animation: eat-down 0.5s infinite;
+  }
+
+.pac {
+    height: 100%;
+    position: relative;
+}
+
+.pac-person {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: inline-block;
+
+    -webkit-animation: move-pac 17s linear infinite;
+    animation: move-pac 17s linear infinite;
+}
+
+.pacfood {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+}
+
+.pac-food-1 {
+    top: 70px;
+    left: 70px;
+
+    -webkit-animation: food-dis-1 17s linear infinite;
+    animation: food-dis-1 17s linear infinite;
+}
+
+.pac-food-2 {
+    top: 70px;
+    right: 70px;
+
+    -webkit-animation: food-dis-2 17s linear infinite;
+    animation: food-dis-2 17s linear infinite;
+}
+
+.pac-food-3 {
+    top: -webkit-calc(100vh - 80px);
+    top: calc(100% - 80px);
+    right: 70px;
+
+    -webkit-animation: food-dis-3 17s linear infinite;
+    animation: food-dis-3 17s linear infinite;
+}
+
+.pac-food-4 {
+    top: -webkit-calc(100vh - 80px);
+    top: calc(100% - 80px);
+    left: 70px;
+
+    -webkit-animation: food-dis-4 17s linear infinite;
+    animation: food-dis-4 17s linear infinite;
+}
+
+@-webkit-keyframes food-dis-1 {
+    0% {opacity: 0;}
+    0.01% {opacity: 0;}
+    1.01% {opacity: 0;}
+    80% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes food-dis-2 {
+    0% {opacity: 1;}
+    24.6% {opacity: 1;}
+    25.6% {opacity: 0;}
+    95% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes food-dis-3 {
+    0% {opacity: 1;}
+    48.7% {opacity: 1;}
+    49.7% {opacity: 0;}
+    95% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes food-dis-4 {
+    0% {opacity: 1;}
+    74% {opacity: 1;}
+    75% {opacity: 0;}
+    95% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes move-pac {
+    0% {left: 50px;}
+
+    25% {left: -webkit-calc(100% - 100px); top: 50px; -webkit-transform: rotate(0deg);}
+    25% {left: calc(100% - 100px); top: 50px; transform: rotate(0deg);}
+
+    25.1% {left: -webkit-calc(100% - 100px); top: 50px; -webkit-transform: rotate(90deg);}
+    25.1% {left: calc(100% - 100px); top: 50px; transform: rotate(90deg);}
+
+    50% {left: -webkit-calc(100% - 100px); top: -webkit-calc(100% - 100px); -webkit-transform: rotate(90deg);} 
+    50% {left: calc(100% - 100px); top: calc(100% - 100px); transform: rotate(90deg);}
+
+    50.1% {left: -webkit-calc(100% - 100px); top: -webkit-calc(100% - 100px); -webkit-transform: rotate(180deg);} 
+    50.1% {left: calc(100% - 100px); top: calc(100% - 100px); transform: rotate(180deg);}
+
+    75% {left: 50px; top: -webkit-calc(100% - 100px); -webkit-transform: rotate(180deg);} 
+    75% {left: 50px; top: calc(100% - 100px); transform: rotate(180deg);}
+
+    75.1% {left: 50px; top: -webkit-calc(100% - 100px); -webkit-transform: rotate(270deg);} 
+    75.1% {left: 50px; top: calc(100% - 100px); transform: rotate(270deg);}
+
+    99.9% {transform: rotate(270deg);}
+    100% {left: 50px}
+
+}
+
+
+  @-webkit-keyframes eat-up {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(-35deg);}
+  }
+
+  @-webkit-keyframes eat-down {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(35deg);}
+  }
+
+.pac-game {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.pacman-info {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-top: 115px;
+    padding-bottom: 115px;
+    position: relative;
+    z-index: 2;
+}
+
+.email-link:link, .email-link:visited, .email-link:hover, .email-link:active {
+    color: white;
+    text-decoration: none;
+    border-bottom: solid 1px white;
+}
+
+.faq-title {
+    text-transform: uppercase;
+    font-size: 280%;
+    font-family: "Beef'd";
+    margin: 0px auto 0;
+    display: block;
+    text-align: center;
+    width: 700px;
+    padding-bottom: 70px;
+}
+
+.question {
+    font-family: 'Montserrat';
+    display: block;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    width: 67%;
+    margin: 0 auto;
+    border-bottom: solid 1px white;
+    color: yellow;
+}
+
+.answer {
+    font-family: 'Montserrat';
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 200;
+    padding-bottom: 30px;
+    padding-top: 9px;
+    width: 67%;
+    margin: 0 auto;
+}
+
+/* SNEK */
+/* .snake {
+    background: #134633;
+}
+
+.snake-body {
+    height: 4vh;
+    width: 4vw;
+    background: white;
+    box-sizing: border-box;
+    border: solid 0.1vh black;
+}
+
+.snake-game {
+    padding-left: 4vw;
+    padding-top: 4vh;
+}
+
+#s1 {
+    -webkit-animation: move1 17s linear infinite;
+    animation: move1 17s linear infinite;
+}
+
+#s2 {
+    -webkit-animation: move2 17s linear infinite;
+    animation: move2 17s linear infinite;
+}
+
+#s3 {
+    -webkit-animation: move3 17s linear infinite;
+    animation: move3 17s linear infinite;
+}
+
+#s4 {
+    -webkit-animation: move4 17s linear infinite;
+    animation: move4 17s linear infinite;
+}
+
+#s5 {
+    -webkit-animation: move5 17s linear infinite;
+    animation: move5 17s linear infinite;
+}
+
+#s6 {
+    -webkit-animation: move6 17s linear infinite;
+    animation: move6 17s linear infinite;
+}
+
+#s7 {
+    -webkit-animation: move7 17s linear infinite;
+    animation: move7 17s linear infinite;
+}
+
+#s8 {
+    -webkit-animation: move8 17s linear infinite;
+    animation: move8 17s linear infinite;
+}
+
+@-webkit-keyframes move1 {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(88vh);}
+    50% {transform: translateY(88vh) translateX(88vw);}
+    75% {transform: translateX(88vw);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move2 {
+    0% {transform: translateY(0px);}
+    23.86% {transform: translateY(84vh);}
+    48.86% {transform: translateY(84vh) translateX(88vw);}
+    73.86% {transform: translateY(-4vh) translateX(88vw);}
+    98.86% {transform: translateY(-4vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move3 {
+    0% {transform: translateY(0px);}
+    22.73% {transform: translateY(80vh);}
+    47.73% {transform: translateY(80vh) translateX(88vw);}
+    72.73% {transform: translateY(-8vh) translateX(88vw);}
+    97.73% {transform: translateY(-8vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move4 {
+    0% {transform: translateY(0px);}
+    21.59% {transform: translateY(76vh);}
+    46.59% {transform: translateY(76vh) translateX(88vw);}
+    71.59% {transform: translateY(-12vh) translateX(88vw);}
+    96.59% {transform: translateY(-12vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move5 {
+    0% {transform: translateY(0px);}
+    20.45% {transform: translateY(72vh);}
+    45.45% {transform: translateY(72vh) translateX(88vw);}
+    70.45% {transform: translateY(-16vh) translateX(88vw);}
+    95.45% {transform: translateY(-16vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move6 {
+    0% {transform: translateY(0px);}
+    19.32% {transform: translateY(68vh);}
+    44.32% {transform: translateY(68vh) translateX(88vw);}
+    69.32% {transform: translateY(-20vh) translateX(88vw);}
+    94.32% {transform: translateY(-20vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move7 {
+    0% {transform: translateY(0px);}
+    18.18% {transform: translateY(64vh);}
+    43.18% {transform: translateY(64vh) translateX(88vw);}
+    68.18% {transform: translateY(-24vh) translateX(88vw);}
+    93.18% {transform: translateY(-24vh);}
+    100% {transform: translateY(0px);}
+}
+
+@-webkit-keyframes move8 {
+    0% {transform: translateY(0px);}
+    17.04% {transform: translateY(60vh);}
+    42.04% {transform: translateY(60vh) translateX(88vw);}
+    67.04% {transform: translateY(-28vh) translateX(88vw);}
+    92.04% {transform: translateY(-28vh);}
+    100% {transform: translateY(0px);}
+} */
+
+
+
+.snake {
+    background: black;
+    padding-bottom: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.snake-info {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-top: 100px;
+}
+
+.schedule-title {
+    text-transform: uppercase;
+    font-size: 280%;
+    font-family: "Beef'd";
+    margin: 0px auto 0;
+    display: block;
+    text-align: center;
+    width: 700px;
+    padding-bottom: 80px;
+}
+
+.time {
+    font-family: monospace;
+    color: #00FF00;
+    display: block;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 300;
+    padding-bottom: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.time-info {
+    font-family: monospace;
+    color: #00FF00;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 300;
+    padding-bottom: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.special {
+    padding-bottom: 50px;
+}
+
+.fire {
+    padding-bottom: 6px;
+}
+
+.type {
+    border: none;
+    background: none;
+    width: 80%;
+    font-family: monospace;
+    color: #00FF00;
+    display: block;
+    text-align: left;
+    font-size: 23px;
+    margin: 0 auto;
+    border-bottom: solid 1px #00FF00;
+    padding-bottom: 5px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #00FF00;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #00FF00;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #00FF00;
+}
+
+input:focus {outline:0;}
+
+/* Invaders */
+.invaders {
+    background: #191919;
+    position: relative;
+    height: auto;
+    z-index: 5 !important;
+}
+
+.canon-outer {
+    position: relative;
+    height: 100%;
+}
+
+.canon {
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+    display: inline-block;
+
+    -webkit-animation: invader-move 25s linear infinite;
+    animation: invader-move 25s linear infinite;
+}
+
+.top {
+    height: 5px;
+    width: 3px;
+    background-color: white;
+    position: relative;
+    left: 50px;
+}
+
+.mid {
+    height: 12px;
+    width: 12px;
+    background-color: white;
+    position: relative;
+    left: 45px;
+}
+
+.thin-mid {
+    height: 5px;
+    width: 90px;
+    background-color: white;
+    position: relative;
+    left: 5px;
+}
+
+.bottom {
+    height: 20px;
+    width: 100px;
+    background-color: white;
+}
+
+.bullet {
+    width: 3px;
+    height: 40px;
+    background: white;
+    left: 50%;
+    opacity: 0;
+
+    -webkit-animation: invader-shoot 25s linear infinite;
+    animation: invader-shoot 25s linear infinite;
+
+    position: relative;
+    z-index: 3;
+}
+
+@-webkit-keyframes invader-move {
+    0% {transform: translateX(0px);}
+
+    50% {transform: translateX(-webkit-calc(100vw - 300px));}
+    50% {transform: translateX(calc(100vw - 300px));}
+
+    100% {transform: translateX(0px);}
+}
+
+@-webkit-keyframes invader-shoot {
+    4.99% {opacity: 0;}
+    5% {opacity: 1; transform: translateY(0px);}
+
+    10% {transform: translateY(-1500px); opacity: 1;}
+
+    10.01% {opacity: 0;}
+    14.99% {opacity: 0;}
+    15% {opacity: 1; transform: translateY(0px);}
+
+    20% {transform: translateY(-1500px); opacity: 1;}
+
+    20.01% {opacity: 0;}
+    24.99% {opacity: 0;}
+    25% {opacity: 1; transform: translateY(0px);}
+
+    30% {transform: translateY(-1500px); opacity: 1;}
+
+    30.01% {opacity: 0;}
+    34.99% {opacity: 0;}
+    35% {opacity: 1; transform: translateY(0px);}
+
+    40% {transform: translateY(-1500px); opacity: 1;}
+
+    40.01% {opacity: 0;}
+    44.99% {opacity: 0;}
+    45% {opacity: 1; transform: translateY(0px);}
+
+    50% {transform: translateY(-1500px); opacity: 1;}
+
+    50.01% {opacity: 0;}
+    54.99% {opacity: 0;}
+    55% {opacity: 1; transform: translateY(0px);}
+
+    60% {transform: translateY(-1500px); opacity: 1;}
+
+    60.01% {opacity: 0;}
+    64.99% {opacity: 0;}
+    65% {opacity: 1; transform: translateY(0px);}
+
+    70% {transform: translateY(-1500px); opacity: 1;}
+
+    70.01% {opacity: 0;}
+    74.99% {opacity: 0;}
+    75% {opacity: 1; transform: translateY(0px);}
+
+    80% {transform: translateY(-1500px); opacity: 1;}
+
+    80.01% {opacity: 0;}
+    81.99% {opacity: 0;}
+    82% {opacity: 1; transform: translateY(0px);}
+
+    87% {transform: translateY(-1500px); opacity: 1;}
+
+    87.01% {opacity: 0;}
+    89.99% {opacity: 0;}
+    90% {opacity: 1; transform: translateY(0px);}
+
+    95% {transform: translateY(-1500px); opacity: 1;}
+
+    95.01% {opacity: 0;}
+}
+
+.invaders-game {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+}
+
+.invaders-info {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-top: 115px;
+    padding-bottom: 140px;
+    position: relative;
+    z-index: 2;
+}
+
+.sponsors-title {
+    text-transform: uppercase;
+    font-size: 280%;
+    font-family: "Beef'd";
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: 700px;
+    padding-bottom: 80px;
+}
+
+.sponsor {
+    max-height: 70px;
+    max-width: 300px;
+    background:white;
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    box-shadow: -10px -10px 0px 1px #00ff00;
+    opacity: 1;
+    position: relative;
+    z-index: 10;
+}
+
+.sponsor-svg {
+    height: 60px;
+}
+
+#sponsor-jpm {
+    max-width: 500px;
+}
+
+
+
+.nav {
+    font-family: Montserrat, sans-serif;
+    text-decoration: none;
+    display:inline;
+    font-size: 130%;
+    font-weight: 300;
+    /* cursor: url('../img/hover.svg'), auto; */
+    color: white;
+    margin-right: 20px;
+  }
+  
+  #nav-bar{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .sponsor-link {
+      display: inline-block;
+      color: white !important;
+      left: 50px;
+      bottom: 27px;
+      position: absolute;
+  }
+
+  .mini-logoz {
+    height: 30px;
+    margin-top: -2px;
+    margin-right: 3px;
+  } 
+  
+  
+  .divider {
+    border: solid 1px;
+    width: 60px;
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
+  
+  .social-media {
+    right: 40px;
+    position: absolute;
+  }
+  
+  .media {
+    height: 30px;
+    /* cursor: url('../img/hover.svg'), auto; */
+  }
+  
+  .facebook, .twitter, .messenger {
+    margin-right: 7px;
+  }
+  
+  .no-underline:link, .no-underline:visited, .no-underline:hover, .no-underline:active {
+    text-decoration: none;
+  }
+
+@media (max-height: 778px) {
+    .pong-info {
+        padding-top: 130px;
+    }
+}
+
+@media (max-height: 731px) {
+    .pong-info {
+        padding-top: 100px;
+    }
+}
+
+
+@media (max-height: 693px) {
+    .pong-info {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 751px) {
+    .uncommon {
+        font-size: 240%;
+        width: 500px;
+        padding-top: 25px;
+    }
+    .faq-title, .schedule-title, .sponsors-title {
+        font-size: 240%;
+        width: 500px;
+    }
+}
+
+@media (max-width: 569px) {
+    .pong-info {
+        padding-top: 70px;
+    }
+    .uncommon {
+        font-size: 200%;
+        width: 100%;
+    }
+    .faq-title, .schedule-title, .sponsors-title {
+        font-size: 200%;
+        width: 100%;
+    }
+    .logo {
+        margin-top: 30px;
+        height: 90px;
+    }
+    .date {
+        margin-top: 30px;
+    }
+    .register {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 475px) {
+    .uncommon {
+        font-size: 170%;
+        width: 100%;
+    }
+
+    .faq-title, .schedule-title, .sponsors-title {
+        font-size: 170%;
+        width: 100%;
+    }
+
+    .date {
+        font-size: 130%;
+        font-weight: 300;
+    }
+
+    .location {
+        font-size: 130%;
+        font-weight: 300;
+    }
+
+    .register {
+        font-size: 110%;
+        padding: 14px 0 16px;
+        width: 170px;
+    }
+    .logo {
+        margin-top: 50px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 415px) {
+    .uncommon {
+        font-size: 150%;
+        width: 100%;
+    }
+
+    .faq-title, .schedule-title, .sponsors-title {
+        font-size: 150%;
+    }
+}
+
+@media (max-width: 818px) {
+    .question, .answer {
+        width: 74%;
+    }
+    .pac-food-1 {
+        opacity: 0;
+    }
+    .pac-up, .pac-down, .pac-person, .pac-food-1, .pac-food-2, .pac-food-3, .pac-food-4 {
+        -webkit-animation: none;
+        animation: none;
+    }
+    .pac-up {
+        transform: rotate(-25deg);
+    }
+    .pac-down {
+        transform: rotate(25deg);
+    }
+    .right_paddle, .left_paddle {
+        width: 20px;
+        top: calc(50% - 60px);
+    }
+    .ball {
+        top: calc(50% - 14px);
+        left: 20px;
+        height: 28px;
+        width: 28px;
+    }
+    .ball, .right_paddle, .left_paddle {
+        -webkit-animation: none;
+        animation: none;
+    }
+    .canon, .bullet {
+        -webkit-animation: none;
+        animation: none;
+    }
+
+    .social-media {
+        right: 20px;
+        position: absolute;
+      }
+
+}
+
+@media (max-width: 618px) {
+    .question, .answer {
+        width: 80%;
+    }
+
+    .answer {
+        font-weight: 400;
+    }
+
+    .time, .time-info {
+        font-weight: 400;
+    }
+
+    .faq-title {
+        padding-bottom: 50px;
+    }
+
+    .pacman-info {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+}
+
+@media (max-width: 522px) {
+    .faq-title {
+        padding-bottom: 40px;
+    }
+    
+    .pacman-info {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .question, .answer {
+        width: 85%;
+    }
+
+    .question {
+        font-size: 27px;
+    }
+    
+    .answer {
+        font-size: 17px;
+    }
+
+    .pac-person {
+        top: 70px;
+        left: 30px;
+    }
+
+    .pac-food-2 {
+        top: 90px;
+        right: 40px;
+    }
+
+    .pac-food-3 {
+        top: calc(100% - 50px);
+        right: 40px;
+    }
+    .pac-food-4 {
+        top: calc(100% - 50px);
+        left: 40px;
+    }
+}
+
+@media (max-width: 466px) {
+    .pac-up, .pac-down {
+        width: 40px;
+        height: 20px;
+    }
+    .pac-food-2 {
+        top: 80px;
+        right: 35px;
+    }
+    .question {
+        font-size: 21px;
+    }
+    .answer {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1060px) {
+    .time, .time-info {
+        width: 90%;
+    }
+
+    .type {
+        width: 90%;
+    }
+
+    .time-info {
+        padding-bottom: 5px;
+    }
+
+    .special {
+        padding-bottom: 30px;
+    }
+
+    .fire {
+        padding-bottom: 0px;
+        margin-bottom: -5px;
+    }
+}
+
+@media(max-width: 600px) {
+    .schedule-title {
+        padding-bottom: 50px;
+    }
+
+    .snake-info {
+        margin-top: 55px;
+    }
+
+    .time {
+        font-size: 18px;
+    }
+
+    .type {
+        font-size: 16px;
+    }
+
+    .time-info {
+        font-size: 17px;
+    }
+}
+
+@media(max-width: 430px) {
+    .time-info {
+        padding-bottom: 3px;
+        font-size: 14px;
+    }
+
+    .time {
+        font-size: 18px;
+    }
+
+    .type {
+        font-size: 16px;
+    }
+
+    .special {
+        padding-bottom: 30px;
+    }
+}
+
+@media(max-width: 1060px) {
+    .sponsor {
+        height: 60px;
+        margin: 20px 20px 0;
+    }
+    .sponsors-title {
+        padding-bottom: 60px;
+    }
+    .invaders-info {
+        padding-top: 60px;
+    }
+}
+
+@media(max-width: 890px) {
+    .sponsor {
+        height: 50px;
+        margin: 20px 20px 0;
+    }
+}
+
+@media(max-width: 670px) {
+    .sponsor {
+        height: 45px;
+        box-shadow: -5px -5px 0px 1px #00ff00;
+    }
+}
+
+@media(max-width: 580px) {
+    .sponsor {
+        height: 30px;
+        margin: 20px 10px 0;
+    }
+}
+
+@media(max-width: 475px) {
+    .sponsors-title {
+        padding-top: 10px;
+        padding-bottom: 35px; 
+    }
+    .invaders-info {
+        padding-bottom: 80px;
+    }
+}
+
+@media(max-width: 450px) {
+    .sponsor {
+        height: 27px;
+        margin: 15px 10px 0;
+    }
+}
